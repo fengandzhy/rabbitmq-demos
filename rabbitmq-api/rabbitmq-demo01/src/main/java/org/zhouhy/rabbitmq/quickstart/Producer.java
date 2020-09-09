@@ -2,7 +2,6 @@ package org.zhouhy.rabbitmq.quickstart;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import org.zhouhy.rabbitmq.common.CommUtil;
 
 import java.io.IOException;
@@ -20,8 +19,7 @@ public class Producer {
             channel.basicPublish("","test001",null,msg.getBytes());
         }
 
-        channel.close();
-        connection.close();
+        CommUtil.close(channel,connection);
 
     }
 }
