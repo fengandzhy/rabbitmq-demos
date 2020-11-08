@@ -13,7 +13,7 @@ public class ProducerWithProperties {
 
     private static final String EXCHANGE_NAME="rabbit:mq05:exchange:e01";
     private static final String QUEUE_NAME_01="rabbit:mq05:queue:q01";
-    private static final String QUEUE_NAME_02="rabbit:mq05:queue:q01";
+    private static final String QUEUE_NAME_02="rabbit:mq05:queue:q02";
 
     private static final String ROUTING_KEY_01="rabbit:mq05:routing:key:r01";
     private static final String ROUTING_KEY_02="rabbit:mq05:routing:key:r02";
@@ -28,7 +28,7 @@ public class ProducerWithProperties {
         channel.queueBind(QUEUE_NAME_01,EXCHANGE_NAME,ROUTING_KEY_01);
 
         channel.queueDeclare(QUEUE_NAME_02, true, false, false, null);
-        channel.queueBind(QUEUE_NAME_02, EXCHANGE_NAME, ROUTING_KEY_02);
+        channel.queueBind(QUEUE_NAME_02, EXCHANGE_NAME, ROUTING_KEY_01);
 
         Map<String, Object> headers = new HashMap<>();
         headers.put("my1", "111");
@@ -44,7 +44,7 @@ public class ProducerWithProperties {
 
         String message01 = "directExchange-publish我的消息-r01";
         for(int i=0;i<5;i++){
-            channel.basicPublish(EXCHANGE_NAME,ROUTING_KEY_01,properties,message01.getBytes());
+            channel.basicPublish(EXCHANGE_NAME,ROUTING_KEY_02,properties,message01.getBytes());
         }
 
         System.out.println("生产者发送消息成功---> ");

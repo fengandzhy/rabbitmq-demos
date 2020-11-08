@@ -11,7 +11,7 @@ public class ConsumerWithProperties {
 
     private static final String EXCHANGE_NAME="rabbit:mq05:exchange:e01";
     private static final String QUEUE_NAME_01="rabbit:mq05:queue:q01";
-    private static final String QUEUE_NAME_02="rabbit:mq05:queue:q01";
+    private static final String QUEUE_NAME_02="rabbit:mq05:queue:q02";
 
     private static final String ROUTING_KEY_01="rabbit:mq05:routing:key:r01";
     private static final String ROUTING_KEY_02="rabbit:mq05:routing:key:r02";
