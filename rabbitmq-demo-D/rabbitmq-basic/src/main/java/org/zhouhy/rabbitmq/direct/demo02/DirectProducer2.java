@@ -1,7 +1,9 @@
 package org.zhouhy.rabbitmq.direct.demo02;
 
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ReturnListener;
 import org.zhouhy.rabbitmq.common.CommUtil;
 import org.zhouhy.rabbitmq.common.RabbitMQConstants;
 
@@ -23,6 +25,8 @@ public class DirectProducer2 {
         String message02 = "directExchange-publish message-r02";
         String message03 = "directExchange-publish message-r03";
         
+
+        
         /**
          *  Producer 把 message01 发送到 DIRECT_EXCHANGE_NAME_01 上并附带的routing key 是 DIRECT_ROUTINE_KEY_01
          * */
@@ -31,7 +35,7 @@ public class DirectProducer2 {
         
         channel.basicPublish(RabbitMQConstants.DIRECT_EXCHANGE_NAME_02,
                 RabbitMQConstants.DIRECT_ROUTINE_KEY_02,null,message02.getBytes());
-        
+
         channel.basicPublish(RabbitMQConstants.DIRECT_EXCHANGE_NAME_02,
                 RabbitMQConstants.DIRECT_ROUTINE_KEY_01,null,message03.getBytes());
 

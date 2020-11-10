@@ -22,6 +22,10 @@ public class RabbitMQConstants {
     public static final String TOPIC_EXCHANGE_NAME_01="mq:topic:exchange:d01";
     public static final String TOPIC_QUEUE_NAME_01="mq:topic:queue:q01";    
     public static final String TOPIC_ROUTINE_KEY_01="mq:topic:routine:k.*";
-    
+
+    public static final String RETURN_EXCHANGE_NAME_01="mq:return:exchange:d01";
+    public static final String RETURN_QUEUE_NAME_01="mq:return:queue:q01";
+    public static final String RETURN_ROUTINE_KEY_01="mq:return:routine:k.*";
+    public static final String RETURN_ROUTINE_KEY_02="mq:return:error";
     
 }
