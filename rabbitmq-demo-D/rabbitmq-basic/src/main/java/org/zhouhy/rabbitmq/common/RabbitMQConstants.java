@@ -27,5 +27,11 @@ public class RabbitMQConstants {
     public static final String RETURN_QUEUE_NAME_01="mq:return:queue:q01";
     public static final String RETURN_ROUTINE_KEY_01="mq:return:routine:k.*";
     public static final String RETURN_ROUTINE_KEY_02="mq:return:error";
+
+
+    public static final String LIMIT_EXCHANGE_NAME_01="mq:limit:exchange:d01";
+    public static final String LIMIT_QUEUE_NAME_01="mq:limit:queue:q01";
+    public static final String LIMIT_ROUTINE_KEY_01="mq:limit:routine:k.*";
+    public static final String LIMIT_ROUTINE_KEY_02="mq:limit:error";
     
 }

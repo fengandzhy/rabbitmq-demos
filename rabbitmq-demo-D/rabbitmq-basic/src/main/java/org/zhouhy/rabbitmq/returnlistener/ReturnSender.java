@@ -27,6 +27,7 @@ public class ReturnSender {
             }
         });
 
+        //这里的mandatory一定要设置成true 否则这个return listener 不起作用
         channel.basicPublish(RabbitMQConstants.RETURN_EXCHANGE_NAME_01, 
                 RabbitMQConstants.RETURN_ROUTINE_KEY_02, true, null, message01.getBytes("UTF-8"));
 
