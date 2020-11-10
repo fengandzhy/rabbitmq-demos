@@ -12,7 +12,8 @@ public class DirectProducer2 {
     
     /**
      * 这里的生产者没有指定 Queue的Binding 和 Exchange 的类型, 那么就必须要在Consumer里面提供相关信息
-     * 而且必须先启动Consumer再启动Producer 否则消息就会丢失. 
+     * 而且必须先启动Consumer再启动Producer 否则就无法确保exchange 在服务器中成功声明, 
+     * 如果exchange 在服务器中没有声明就启动Producer 就会报错
      * */
     public static void main(String[] args) throws IOException, TimeoutException {
         Connection connection = CommUtil.createConnection();

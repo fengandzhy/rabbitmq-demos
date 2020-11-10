@@ -14,8 +14,14 @@ public class RabbitMQConstants {
     public static final String DIRECT_ROUTINE_KEY_02="mq:direct:routine:k02";
 
 
-    public static final String FANOUT_EXCHANGE_NAME_01="mq:fanout:exchange:d01";
-    public static final String FANOUT_EXCHANGE_NAME_02="mq:fanout:exchange:d02";
+    public static final String FANOUT_EXCHANGE_NAME_01="mq:fanout:exchange:d01";    
     public static final String FANOUT_QUEUE_NAME_01="mq:fanout:queue:q01";
     public static final String FANOUT_QUEUE_NAME_02="mq:fanout:queue:q02";
+
+
+    public static final String TOPIC_EXCHANGE_NAME_01="mq:topic:exchange:d01";
+    public static final String TOPIC_QUEUE_NAME_01="mq:topic:queue:q01";    
+    public static final String TOPIC_ROUTINE_KEY_01="mq:topic:routine:k.*";
+    
+    
 }

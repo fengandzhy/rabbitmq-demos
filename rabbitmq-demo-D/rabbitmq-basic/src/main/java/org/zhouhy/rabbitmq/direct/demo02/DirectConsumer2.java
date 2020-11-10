@@ -15,7 +15,7 @@ public class DirectConsumer2 {
         Connection connection = CommUtil.createConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(RabbitMQConstants.DIRECT_EXCHANGE_NAME_01,BuiltinExchangeType.DIRECT);
+        channel.exchangeDeclare(RabbitMQConstants.DIRECT_EXCHANGE_NAME_02,BuiltinExchangeType.DIRECT);
 
         channel.queueDeclare(RabbitMQConstants.DIRECT_QUEUE_NAME_01,true, false,
                 false,null);
