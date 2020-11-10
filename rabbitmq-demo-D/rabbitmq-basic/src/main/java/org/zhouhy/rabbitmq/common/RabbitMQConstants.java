@@ -3,7 +3,7 @@ package org.zhouhy.rabbitmq.common;
 public class RabbitMQConstants {
     public static final String Confirm_Exchange_Name="rabbit:confirm:exchange:e01";
     public static final String Confirm_Queue_Name_01="rabbit:confirm:queue:q01";
-    public static final String Confirm_Routing_Key_01="rabbit:confirm:routing:key:#";
+    public static final String Confirm_Routing_Key_01="rabbit:confirm:routing:key.#";
     
     
     public static final String DIRECT_EXCHANGE_NAME_01="mq:direct:exchange:d01";

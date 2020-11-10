@@ -22,18 +22,18 @@ public class ConfirmProducer {
 
         //发送消息永远这两个最重要一个exchange name 一个是routing key
         channel.basicPublish(RabbitMQConstants.Confirm_Exchange_Name,
-                RabbitMQConstants.Confirm_Routing_Key_01, null,
+                "rabbit:confirm:routing:key.01", null,
                 message.getBytes("UTF-8"));
 
         channel.addConfirmListener(new ConfirmListener() {
             @Override
             public void handleAck(long deliveryTag, boolean multiple) throws IOException {
-                System.err.println("-------no ack!-----------");
+                System.err.println("-------ack!-----------");
             }
 
             @Override
             public void handleNack(long deliveryTag, boolean multiple) throws IOException {
-                System.err.println("-------ack!-----------");
+                System.err.println("-------no ack!-----------");
             }
         });
 

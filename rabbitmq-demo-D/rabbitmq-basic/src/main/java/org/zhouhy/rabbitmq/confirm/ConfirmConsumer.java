@@ -1,8 +1,6 @@
 package org.zhouhy.rabbitmq.confirm;
 
-import com.rabbitmq.client.BuiltinExchangeType;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.*;
 import org.zhouhy.rabbitmq.common.CommUtil;
 import org.zhouhy.rabbitmq.common.RabbitMQConstants;
 
@@ -16,5 +14,13 @@ public class ConfirmConsumer {
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(RabbitMQConstants.Confirm_Exchange_Name,BuiltinExchangeType.TOPIC);
+        channel.queueDeclare(RabbitMQConstants.Confirm_Queue_Name_01,true,false,false,null);
+        channel.queueBind(RabbitMQConstants.Confirm_Queue_Name_01,RabbitMQConstants.Confirm_Exchange_Name,RabbitMQConstants.Confirm_Routing_Key_01);
+
+        Consumer consumer = CommUtil.createConsumer(channel);
+
+        channel.basicConsume(RabbitMQConstants.Confirm_Queue_Name_01, true, consumer);
+        
+        
     }
 }
