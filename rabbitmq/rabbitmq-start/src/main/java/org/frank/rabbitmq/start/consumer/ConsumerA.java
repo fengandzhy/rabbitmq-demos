@@ -23,6 +23,7 @@ public class ConsumerA {
                 properties.getProperty("username"), properties.getProperty("password"),
                 Integer.parseInt(properties.getProperty("port")), properties.getProperty("virtualHost"));
         Channel channel = connection.createChannel();
+        channel.queueDeclare(Constant.START_QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 //        DeliverCallback deliverCallback = (consumerTag, delivery) -> {
 //            String message = new String(delivery.getBody(), "UTF-8");
