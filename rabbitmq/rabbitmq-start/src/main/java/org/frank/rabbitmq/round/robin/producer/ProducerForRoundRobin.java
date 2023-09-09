@@ -11,7 +11,8 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 轮询就是生产者依次向不同的消费者发送消息, 就是说生产者发送了一堆消息, 每个消费者依次来读取, 
- * 缺点就是有些消费者消费消息快, 而有些消费者消费消息慢, 
+ * 缺点就是有些消费者消费消息快, 而有些消费者消费消息慢,
+ * channel.basicQos(1); 这个代码就可以让能者多劳了
  * */
 public class ProducerForRoundRobin {
 

@@ -18,6 +18,7 @@ public class ConsumerForRoundRobin1 {
         Channel channel = connection.createChannel();
         channel.queueDeclare(Constant.ROUND_ROBIN_QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+        channel.basicQos(1); // 限制每次消费1条消息, 消费完了再取
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope,
@@ -29,6 +30,7 @@ public class ConsumerForRoundRobin1 {
                     throw new RuntimeException(e);
                 }
                 System.out.println("body=" + new String(body, "utf-8"));
+                channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
         //消费,关闭消息消息自动确认,重要

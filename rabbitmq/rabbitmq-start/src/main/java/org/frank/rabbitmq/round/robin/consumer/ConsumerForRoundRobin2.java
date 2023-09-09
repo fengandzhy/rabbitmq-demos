@@ -18,17 +18,19 @@ public class ConsumerForRoundRobin2 {
         Channel channel = connection.createChannel();
         channel.queueDeclare(Constant.ROUND_ROBIN_QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+        channel.basicQos(1);
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope,
                                        AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
                 try {
-                    TimeUnit.SECONDS.sleep(3);
+                    TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
                 System.out.println("body=" + new String(body, "utf-8"));
+                channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
         //消费,关闭消息消息自动确认,重要
