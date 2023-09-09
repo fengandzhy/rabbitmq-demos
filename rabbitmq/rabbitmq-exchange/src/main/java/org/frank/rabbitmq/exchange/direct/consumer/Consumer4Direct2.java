@@ -25,7 +25,7 @@ public class Consumer4Direct2 {
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(Exchange_Name, BuiltinExchangeType.DIRECT);
-        channel.queueDeclare(Queue_Name_02,true, false, false, null);
+        channel.queueDeclare(Queue_Name_02,false, false, false, null);
         channel.queueBind(Queue_Name_02,Exchange_Name,Routing_Key_02);
         channel.queueBind(Queue_Name_02, Exchange_Name, Routing_Key_03);
 

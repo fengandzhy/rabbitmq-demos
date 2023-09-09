@@ -28,7 +28,7 @@ public class Producer4Fanout {
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(Exchange_Name, BuiltinExchangeType.FANOUT);
-        channel.queueDeclare(Queue_Name_02,true, false, false, null);
+        channel.queueDeclare(Queue_Name_02,false, false, false, null);
         channel.queueBind(Queue_Name_02,Exchange_Name,"");
 
 

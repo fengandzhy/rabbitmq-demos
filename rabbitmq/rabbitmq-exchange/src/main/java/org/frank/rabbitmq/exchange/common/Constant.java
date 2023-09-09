@@ -11,4 +11,8 @@ public class Constant {
     public static final String ERROR_ROUTING_KEY = "error_routing_key";
     public static final String INFO_ROUTING_KEY = "info_routing_key";
     public static final String DEBUG_ROUTING_KEY = "debug_routing_key";
+
+    public static final String TOPIC_EXCHANGE_NAME_01="mq:topic:exchange:d01";
+    public static final String TOPIC_QUEUE_NAME_01="mq:topic:queue:q01";
+    public static final String TOPIC_ROUTINE_KEY_01="mq:topic:routine:k.*";
 }
