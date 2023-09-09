@@ -22,6 +22,13 @@ import java.util.concurrent.TimeoutException;
  * 也就是说它只认Queue_Name_02 和 Routing key 完全匹配
  * 但是如果要修改这个Queue_Name_02 和 Routing key 的匹配关系，比方说 Queue_Name_02 改成Queue_Name_01 那么一定要在页面中解绑unbind
  * 单纯的修改代码是不起作用的
+ * 
+ * 任何发送到Direct Exchange的消息都会被转发到RouteKey中指定的Queue。
+ * 1.一般情况可以使用rabbitMQ自带的Exchange：”"(该Exchange的名字为空字符串，下文称其为default Exchange)。
+ * 2.这种模式下不需要将Exchange进行任何绑定(binding)操作
+ * 3.消息传递时需要一个“RouteKey”，可以简单的理解为要发送到的队列名字。
+ * 4.如果vhost中不存在RouteKey中指定的队列名，则该消息会被抛弃。
+ * 
  *
  * */
 public class Producer4Direct {
@@ -42,7 +49,7 @@ public class Producer4Direct {
                 5672, "/");
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(Exchange_Name,BuiltinExchangeType.DIRECT);
+        channel.exchangeDeclare(Exchange_Name,BuiltinExchangeType.DIRECT);        
         channel.queueDeclare(Queue_Name_01,false, false, false, null);
         channel.queueBind(Queue_Name_01, Exchange_Name, Routing_Key_01);
 
