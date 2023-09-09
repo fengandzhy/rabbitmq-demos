@@ -1,4 +1,4 @@
-package org.frank.rabbitmq.exchange.fanout.common;
+package org.frank.rabbitmq.exchange.common;
 
 import com.rabbitmq.client.*;
 
