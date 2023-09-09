@@ -20,14 +20,11 @@ public class FanoutConsumer2 {
 
         //绑定交换机，fanout扇形，即广播
         channel.exchangeDeclare(Constant.FANOUT_EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
-        //获取队列
-        String queueName = channel.queueDeclare().getQueue();
-        
-        System.out.println(queueName);
+        channel.queueDeclare(Constant.FANOUT_QUEUE_NAME2, false, false, false, null);
 
         //绑定交换机和队列, fanout交换机不用routing key
-        channel.queueBind(queueName,Constant.FANOUT_EXCHANGE_NAME,"");
+        channel.queueBind(Constant.FANOUT_QUEUE_NAME2,Constant.FANOUT_EXCHANGE_NAME,"");
 
-        channel.basicConsume(queueName,false,CommonUtil.createConsumer(channel));
+        channel.basicConsume(Constant.FANOUT_QUEUE_NAME2,false,CommonUtil.createConsumer(channel));
     }
 }
