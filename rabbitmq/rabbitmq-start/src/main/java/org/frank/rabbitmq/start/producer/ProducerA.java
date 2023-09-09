@@ -14,7 +14,7 @@ import java.util.concurrent.TimeoutException;
 
 public class ProducerA {
 
-    
+    @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) throws IOException, TimeoutException {
         Properties properties = new Properties();
         // 使用ClassLoader加载properties配置文件生成对应的输入流
