@@ -4,7 +4,7 @@ import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Consumer;
-import org.frank.rabbitmq.exchange.fanout.common.CommonUtil;
+import org.frank.rabbitmq.exchange.common.CommonUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;

@@ -1,4 +1,4 @@
-package org.frank.rabbitmq.exchange.fanout.common;
+package org.frank.rabbitmq.exchange.common;
 
 public class Constant {
     public static final String FANOUT_EXCHANGE_NAME="fanout_exchange_name";

@@ -3,8 +3,8 @@ package org.frank.rabbitmq.exchange.fanout.producer;
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import org.frank.rabbitmq.exchange.fanout.common.CommonUtil;
-import org.frank.rabbitmq.exchange.fanout.common.Constant;
+import org.frank.rabbitmq.exchange.common.CommonUtil;
+import org.frank.rabbitmq.exchange.common.Constant;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
