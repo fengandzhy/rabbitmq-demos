@@ -1,4 +1,4 @@
-package org.frank.rabbitmq.start.common;
+package org.frank.rabbitmq.common;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

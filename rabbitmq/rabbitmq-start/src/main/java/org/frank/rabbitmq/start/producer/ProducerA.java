@@ -2,8 +2,8 @@ package org.frank.rabbitmq.start.producer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
-import org.frank.rabbitmq.start.common.CommonUtil;
-import org.frank.rabbitmq.start.common.Constant;
+import org.frank.rabbitmq.common.CommonUtil;
+import org.frank.rabbitmq.common.Constant;
 import org.frank.rabbitmq.start.consumer.ConsumerA;
 
 import java.io.IOException;
