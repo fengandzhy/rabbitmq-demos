@@ -37,13 +37,16 @@ public class ConfirmProducer {
         channel.addConfirmListener(new ConfirmListener() {
             
             /**
-             * 如果成功投递到broker 它会给我们返回一个 ack 
+             * 如果成功投递到broker 它会给我们调用这个方法
              * */
             @Override
             public void handleAck(long deliveryTag, boolean multiple) throws IOException {
                 System.err.println("-------ack!-----------");
             }
 
+            /**
+             * 如果没有成功投递到broker 它会给我们调用这个方法
+             * */
             @Override
             public void handleNack(long deliveryTag, boolean multiple) throws IOException {
                 System.err.println("-------no ack!-----------");
