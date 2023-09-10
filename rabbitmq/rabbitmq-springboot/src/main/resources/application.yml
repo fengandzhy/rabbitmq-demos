@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+#消息队列
+spring:
+  rabbitmq:
+    host: 47.242.251.45
+    port: 5672
+    virtual-host: /
+    username: admin
+    password: 123456
+mq:
+  env: dev  
+  config:
+    exchange: order_exchange
+    queue: order_queue
+      
