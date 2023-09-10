@@ -1,9 +1,6 @@
 package org.frank.rabbitmq.advanced.retu.listener.producer;
 
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ReturnListener;
+import com.rabbitmq.client.*;
 import org.frank.rabbitmq.advanced.common.CommonUtil;
 import org.frank.rabbitmq.advanced.common.Constant;
 
@@ -17,6 +14,8 @@ public class ReturnSender {
                 "admin", "123456",
                 5672, "/");
         Channel channel = connection.createChannel();
+
+        channel.confirmSelect();
 
         String message01 = "directExchange-publish message-r01";
 
@@ -34,9 +33,24 @@ public class ReturnSender {
                 Constant.RETURN_ROUTINE_KEY_02, true, null, 
                 message01.getBytes("UTF-8"));
 
-//        channel.basicPublish("asddddd",
-//                RabbitMQConstants.RETURN_ROUTINE_KEY_02, false, null, message01.getBytes("UTF-8"));
+        channel.addConfirmListener(new ConfirmListener() {
 
+            /**
+             * 如果成功投递到broker 它会给我们调用这个方法
+             * */
+            @Override
+            public void handleAck(long deliveryTag, boolean multiple) throws IOException {
+                System.err.println("-------ack!-----------");
+            }
+
+            /**
+             * 如果没有成功投递到broker 它会给我们调用这个方法
+             * */
+            @Override
+            public void handleNack(long deliveryTag, boolean multiple) throws IOException {
+                System.err.println("-------no ack!-----------");
+            }
+        });
         
     }
 }
