@@ -43,6 +43,7 @@ public class RabbitmqTest {
     
     /**
      * ReturnCallback 则是在交换机路由不到队列的时候被调用。它通过这个回调函数将你的消息退还给你，让你自行处理
+     * 也可以是发送者没有找到交换机时, 它通过这个回调函数将你的消息退还给你，让你自行处理
      * */
     @Test
     public void testReturnCallback() {
