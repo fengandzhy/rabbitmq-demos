@@ -9,3 +9,9 @@ spring:
     virtual-host: /
     username: admin
     password: 123456
+mq:
+  env: dev  
+  config:
+    exchange: order_exchange
+    queue: order_queue
+      
