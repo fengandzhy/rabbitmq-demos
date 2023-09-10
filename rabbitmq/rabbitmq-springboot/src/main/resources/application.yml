@@ -16,6 +16,7 @@ spring:
     #为true,则交换机处理消息到路由失败，则会返回给生产者
     template:
       mandatory: true
+      
 mq:
   env: dev  
   config:

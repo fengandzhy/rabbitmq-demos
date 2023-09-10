@@ -39,9 +39,9 @@ public class RabbitmqTest {
     }
     
     @Test
-    public void testReturnCallback() {
-        // 这个方法只有在消息失败的时候才会去调用, 从exchange 到 queue 失败的时候会调用
+    public void testReturnCallback() {        
         template.setReturnsCallback(returned -> {
+            System.out.println("消息投递不成功, 被退回.");
             System.out.println("returned="+returned.toString());
         });
         // 这里模拟一条失败消息, 找不到 routingKey 的 
