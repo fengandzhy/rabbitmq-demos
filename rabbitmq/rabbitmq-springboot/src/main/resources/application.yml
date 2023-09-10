@@ -16,7 +16,10 @@ spring:
     #为true,则交换机处理消息到路由失败，则会返回给生产者
     template:
       mandatory: true
-      
+    #开启⼿动确认消息，如果消息重新⼊队，进⾏重试  
+    listener:
+      simple:
+        acknowledge-mode: manual  
 mq:
   env: dev  
   config:

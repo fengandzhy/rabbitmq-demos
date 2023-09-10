@@ -18,10 +18,13 @@ public class RabbitmqTest {
     @Test
     public void testSend() {
         for(int i=0;i<5;i++){
-            template.convertAndSend(env.getProperty("mq.config.exchange"), "order.new","新订单");
+            template.convertAndSend(env.getProperty("mq.config.exchange"), "order.new","新订单"+i);
         }
     }
     
+    /**
+     * ConfirmCallback是在消息发给交换机时被回调，通过这个回调函数我们能知道发送的消息内容，路由键，交换机名称，是否投递成功等内容；
+     * */
     @Test
     public void testConfirmCallback() {
         template.setConfirmCallback(((correlationData, ack, cause) -> {
@@ -38,6 +41,9 @@ public class RabbitmqTest {
         template.convertAndSend(env.getProperty("mq.config.exchange"), "order.new","新订单");
     }
     
+    /**
+     * ReturnCallback 则是在交换机路由不到队列的时候被调用。它通过这个回调函数将你的消息退还给你，让你自行处理
+     * */
     @Test
     public void testReturnCallback() {
         
