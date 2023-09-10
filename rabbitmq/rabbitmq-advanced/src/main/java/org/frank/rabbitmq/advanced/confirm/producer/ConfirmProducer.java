@@ -3,8 +3,8 @@ package org.frank.rabbitmq.advanced.confirm.producer;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.ConfirmListener;
 import com.rabbitmq.client.Connection;
-import org.frank.rabbitmq.advanced.confirm.common.CommonUtil;
-import org.frank.rabbitmq.advanced.confirm.common.Constant;
+import org.frank.rabbitmq.advanced.common.CommonUtil;
+import org.frank.rabbitmq.advanced.common.Constant;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;

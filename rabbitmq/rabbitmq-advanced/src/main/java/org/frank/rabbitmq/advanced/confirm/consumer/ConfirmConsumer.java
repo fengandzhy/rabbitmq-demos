@@ -1,8 +1,8 @@
 package org.frank.rabbitmq.advanced.confirm.consumer;
 
 import com.rabbitmq.client.*;
-import org.frank.rabbitmq.advanced.confirm.common.CommonUtil;
-import org.frank.rabbitmq.advanced.confirm.common.Constant;
+import org.frank.rabbitmq.advanced.common.CommonUtil;
+import org.frank.rabbitmq.advanced.common.Constant;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;

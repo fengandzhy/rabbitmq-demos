@@ -1,4 +1,4 @@
-package org.frank.rabbitmq.advanced.confirm.common;
+package org.frank.rabbitmq.advanced.common;
 
 import com.rabbitmq.client.*;
 
