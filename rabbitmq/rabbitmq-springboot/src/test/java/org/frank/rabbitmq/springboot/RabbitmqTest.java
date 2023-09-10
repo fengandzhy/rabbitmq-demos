@@ -39,7 +39,8 @@ public class RabbitmqTest {
     }
     
     @Test
-    public void testReturnCallback() {        
+    public void testReturnCallback() {
+        
         template.setReturnsCallback(returned -> {
             System.out.println("消息投递不成功, 被退回.");
             System.out.println("returned="+returned.toString());
