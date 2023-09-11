@@ -24,7 +24,7 @@ public class ReturnSender {
             @Override
             public void handleReturn(int replyCode, String replyText, String exchange,
                     String routingKey, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                System.out.println("The message is comeing back "+ new String(body));
+                System.out.println("The message is coming back "+ new String(body));
             }
         });
 
