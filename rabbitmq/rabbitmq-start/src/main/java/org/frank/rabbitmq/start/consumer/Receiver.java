@@ -4,7 +4,7 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 
-public class Recv {
+public class Receiver {
 
     private final static String QUEUE_NAME = "hello";
 
