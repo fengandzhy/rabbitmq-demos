@@ -25,11 +25,13 @@ public class CommonUtil {
     public static Consumer createConsumer(Channel channel){
 
         return new DefaultConsumer(channel) {
+            
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope,AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
                 System.out.println("消费者接收到消息成功---> "+message);
                 channel.basicAck(envelope.getDeliveryTag(),false);
+                
             }
         };
     }
