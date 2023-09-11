@@ -5,23 +5,15 @@ import org.frank.rabbitmq.common.CommonUtil;
 import org.frank.rabbitmq.common.Constant;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
 public class ConsumerA {
 
     @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) throws IOException, TimeoutException {
-        Properties properties = new Properties();
+        
 
-        InputStream in = ConsumerA.class.getClassLoader().getResourceAsStream("config.properties");
-
-        properties.load(in);
-
-        Connection connection = CommonUtil.createConnection(properties.getProperty("host"),
-                properties.getProperty("username"), properties.getProperty("password"),
-                Integer.parseInt(properties.getProperty("port")), properties.getProperty("virtualHost"));
+        Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(Constant.START_QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");

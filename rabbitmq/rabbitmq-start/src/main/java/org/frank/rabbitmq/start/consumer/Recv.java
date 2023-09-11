@@ -1,7 +1,6 @@
 package org.frank.rabbitmq.start.consumer;
 
 import com.rabbitmq.client.*;
-
 import java.io.IOException;
 
 
