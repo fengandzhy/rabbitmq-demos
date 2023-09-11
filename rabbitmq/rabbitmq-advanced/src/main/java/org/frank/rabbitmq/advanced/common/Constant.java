@@ -12,4 +12,9 @@ public class Constant {
 
     public static final String LIMIT_EXCHANGE_NAME_01="mq:limit:exchange:d01";
     public static final String LIMIT_QUEUE_NAME_01="mq:limit:queue:q01";
+
+    public static final String ACK_EXCHANGE_NAME_01="mq:ack:exchange:d01";
+    public static final String ACK_QUEUE_NAME_01="mq:ack:queue:q01";
+    public static final String ACK_ROUTINE_KEY_01="mq:ack:routine:k.*";
+    public static final String ACK_ROUTINE_KEY_02="mq:ack:error";
 }
