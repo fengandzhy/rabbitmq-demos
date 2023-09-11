@@ -9,15 +9,13 @@ import java.util.concurrent.TimeoutException;
 
 public class CommonUtil {
 
-    public static Connection createConnection(String host, String username, 
-                                              String password, int port, 
-                                              String virtualHost) throws IOException, TimeoutException {
+    public static Connection createConnection() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(host);
-        factory.setUsername(username);
-        factory.setPassword(password);
-        factory.setPort(port);
-        factory.setVirtualHost(virtualHost);
+        factory.setHost("47.242.251.45");
+        factory.setUsername("admin");
+        factory.setPassword("123456");
+        factory.setPort(5672);
+        factory.setVirtualHost("/");
         
         return factory.newConnection();
     }
