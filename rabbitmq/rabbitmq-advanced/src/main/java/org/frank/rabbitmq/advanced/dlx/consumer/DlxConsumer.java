@@ -29,14 +29,8 @@ public class DlxConsumer {
         //要进行死信队列的声明:
         channel.exchangeDeclare("dlx.exchange", "topic", true, false, null);
         channel.queueDeclare("dlx.queue", true, false, false, null);
-        channel.queueBind("dlx.queue", "dlx.exchange", "#");
-
-        Consumer consumer = new MyAckConsumer(channel);       
-        
-        /**
-         * 这个地方不能加这条语句, 因为消息0 始终都会一个劲地在重回队尾
-         * */
-//        channel.basicQos(0,1,false);
-        channel.basicConsume("test_common_queue", false, consumer);        
+        channel.queueBind("dlx.queue", "dlx.exchange", "#");       
+       
+        channel.basicConsume("test_common_queue", false, CommonUtil.createConsumer(channel));        
     }
 }
