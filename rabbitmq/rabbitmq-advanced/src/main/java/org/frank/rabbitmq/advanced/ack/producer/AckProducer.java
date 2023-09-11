@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * channel.basicAck 表示签收消息, 消息已经被处理完
+ * channel.basicNack 表示拒绝处理消息, 消息并没有被处理,  channel.basicNack(envelope.getDeliveryTag(),false,true); 
+ * 第三个参数表示是否重回队列
+ * */
 public class AckProducer {
 
     public static void main(String[] args) throws IOException, TimeoutException {

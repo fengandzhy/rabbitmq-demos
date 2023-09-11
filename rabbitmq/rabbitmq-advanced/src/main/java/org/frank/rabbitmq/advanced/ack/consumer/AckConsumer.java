@@ -24,9 +24,9 @@ public class AckConsumer {
         Consumer consumer = new MyAckConsumer(channel);       
         
         /**
-         * 这个地方不能加这条语句否则消息就不会重新回到队尾
+         * 这个地方不能加这条语句, 因为消息0 始终都会一个劲地在重回队尾
          * */
-        //channel.basicQos(0,1,false);
+//        channel.basicQos(0,1,false);
         channel.basicConsume(Constant.ACK_QUEUE_NAME_01, false, consumer);        
     }
 }

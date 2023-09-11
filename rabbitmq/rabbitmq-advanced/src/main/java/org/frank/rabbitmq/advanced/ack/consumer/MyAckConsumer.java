@@ -31,13 +31,13 @@ public class MyAckConsumer extends DefaultConsumer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+//        channel.basicAck(envelope.getDeliveryTag(),false); //这里的false表示不批量签收
         
         if((Integer)properties.getHeaders().get("num")==0){
             channel.basicNack(envelope.getDeliveryTag(),false,true); //这里的true表示要重回队列
         }else{
             channel.basicAck(envelope.getDeliveryTag(),false); //这里的false表示不批量签收
-        }
-
-        
+        }       
     }
 }
