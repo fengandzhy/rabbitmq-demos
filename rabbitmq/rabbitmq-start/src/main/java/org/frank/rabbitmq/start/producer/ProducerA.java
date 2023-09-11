@@ -4,27 +4,17 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import org.frank.rabbitmq.common.CommonUtil;
 import org.frank.rabbitmq.common.Constant;
-import org.frank.rabbitmq.start.consumer.ConsumerA;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
 public class ProducerA {
 
     @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) throws IOException, TimeoutException {
-        Properties properties = new Properties();
-        // 使用ClassLoader加载properties配置文件生成对应的输入流
-        InputStream in = ConsumerA.class.getClassLoader().getResourceAsStream("config.properties");
-        // 使用properties对象加载输入流
-        properties.load(in);
-        
-        Connection connection = CommonUtil.createConnection(properties.getProperty("host"),
-                properties.getProperty("username"), properties.getProperty("password"), 
-                Integer.parseInt(properties.getProperty("port")), properties.getProperty("virtualHost"));
+                
+        Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
         /**
          * 队列名称

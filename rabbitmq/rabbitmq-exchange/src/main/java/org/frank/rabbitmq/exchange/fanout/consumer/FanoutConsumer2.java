@@ -13,9 +13,7 @@ public class FanoutConsumer2 {
 
     @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) throws IOException, TimeoutException {
-        Connection connection = CommonUtil.createConnection("47.242.251.45",
-                "admin", "123456",
-                5672, "/");
+        Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
 
         //绑定交换机，fanout扇形，即广播

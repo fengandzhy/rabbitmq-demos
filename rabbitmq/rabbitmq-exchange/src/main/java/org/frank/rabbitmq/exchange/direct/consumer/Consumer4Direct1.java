@@ -17,9 +17,7 @@ public class Consumer4Direct1 {
 
     @SuppressWarnings("DuplicatedCode")
     public static void main(String[] args) throws IOException, TimeoutException {
-        Connection connection = CommonUtil.createConnection("47.242.251.45",
-                "admin", "123456",
-                5672, "/");
+        Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(Exchange_Name,BuiltinExchangeType.DIRECT);

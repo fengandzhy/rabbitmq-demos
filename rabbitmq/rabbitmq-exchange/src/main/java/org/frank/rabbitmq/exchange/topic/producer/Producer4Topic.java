@@ -26,9 +26,7 @@ public class Producer4Topic {
     private static final String Exchange_Name="rabbit:mq04:exchange:e01";
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        Connection connection = CommonUtil.createConnection("47.242.251.45",
-                "admin", "123456",
-                5672, "/");
+        Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(Exchange_Name, BuiltinExchangeType.TOPIC);
         String message = "topicExchange-publish我的消息";
