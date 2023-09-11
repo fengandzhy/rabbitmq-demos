@@ -15,10 +15,6 @@ public class LimitConsumer {
     public static void main(String[] args) throws IOException, TimeoutException {
         Connection connection = CommonUtil.createConnection();
         Channel channel = connection.createChannel();
-
-        
-        Consumer consumer = new MyCommonConsumer(channel);
-
         
         /**
          * 如果要限流这里的autoAck一定要设置成false
@@ -31,7 +27,7 @@ public class LimitConsumer {
         /**
          * 注意这里的第二个参数一定一定要是false, 要在我们新写的consumer里面手动确认签收
          * */
-        channel.basicConsume(Constant.LIMIT_QUEUE_NAME_01, false, consumer);
+        channel.basicConsume(Constant.LIMIT_QUEUE_NAME_01, false, CommonUtil.createConsumer(channel));
         
     }
 }

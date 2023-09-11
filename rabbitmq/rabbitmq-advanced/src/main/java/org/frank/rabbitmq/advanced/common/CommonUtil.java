@@ -29,7 +29,12 @@ public class CommonUtil {
             public void handleDelivery(String consumerTag, Envelope envelope,AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
                 System.out.println("消费者接收到消息成功---> "+message);
-                channel.basicAck(envelope.getDeliveryTag(),false);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                channel.basicAck(envelope.getDeliveryTag(),false); // 手动消息确认
             }
         };
     }
