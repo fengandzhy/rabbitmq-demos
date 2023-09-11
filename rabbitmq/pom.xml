@@ -21,6 +21,7 @@
         <module>rabbitmq-exchange</module>
         <module>rabbitmq-springboot</module>
         <module>rabbitmq-advanced</module>
+        <module>rabbitmq-springboot-ttl</module>
     </modules>
 
     <properties>
