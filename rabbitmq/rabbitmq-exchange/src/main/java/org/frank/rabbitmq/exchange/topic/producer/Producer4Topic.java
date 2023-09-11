@@ -1,9 +1,6 @@
 package org.frank.rabbitmq.exchange.topic.producer;
 
-import com.rabbitmq.client.BuiltinExchangeType;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.*;
 import org.frank.rabbitmq.exchange.common.CommonUtil;
 import org.frank.rabbitmq.exchange.common.Constant;
 
@@ -31,12 +28,20 @@ public class Producer4Topic {
         channel.exchangeDeclare(Exchange_Name, BuiltinExchangeType.TOPIC);
         String message = "topicExchange-publish我的消息";
 
-        channel.basicPublish(Exchange_Name, "rabbit:mq04:routing:key:r.*", null, message.getBytes("UTF-8"));
-        //channel.basicPublish(Exchange_Name, "rabbit:mq04:routing:key:r.orange.apple", null, message.getBytes("UTF-8"));
+        channel.basicPublish(Exchange_Name, "rabbit:mq04:routing:key:r.orange", true,null, message.getBytes("UTF-8"));
+        channel.basicPublish(Exchange_Name, "rabbit:mq04:routing:key:r.orange.apple", null, message.getBytes("UTF-8"));
 
         System.out.println("生产者发送消息成功---> ");
 
-        CommonUtil.close(channel,connection);
+        channel.addReturnListener(new ReturnListener() {
+            @Override
+            public void handleReturn(int replyCode, String replyText, String exchange,
+                                     String routingKey, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                System.out.println("The message is coming back "+ new String(body));
+            }
+        });
+
+//        CommonUtil.close(channel,connection);
 
     }
 }

@@ -12,7 +12,7 @@ public class Consumer4Topic {
 
     private static final String Exchange_Name="rabbit:mq04:exchange:e01";
     private static final String Queue_Name_01="rabbit:mq04:queue:q01";
-    private static final String Routing_Key_01="rabbit:mq04:routing:key:r.orange";
+    private static final String Routing_Key_01="rabbit:mq04:routing:key:r.#";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         Connection connection = CommonUtil.createConnection();
