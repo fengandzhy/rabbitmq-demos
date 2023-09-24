@@ -13,6 +13,8 @@ import java.util.concurrent.TimeoutException;
  * 首先要开启消息确认模式 channel.confirmSelect(); 
  * 然后是创建confirmListener 
  * 
+ * 是的，开启确认模式 channel.confirmSelect() 的主要目的是确保生产者（producer）发送的消息是否成功到达 RabbitMQ 服务器（broker）。
+ * 
  * */
 public class ConfirmProducer {
 
