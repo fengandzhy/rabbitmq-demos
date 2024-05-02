@@ -1,6 +1,7 @@
 package org.frank.rabbitmq.springboot.listners;
 
 import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.MessageProperties;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,6 +19,8 @@ public class OrderMQListener {
         System.out.println("msgTag="+msgTag);
         System.out.println("message="+message.toString());
         System.out.println("body="+body);
+
+//        int a = MessageProperties.PERSISTENT_TEXT_PLAIN;
 
         //告诉broker，消息已经被确认
         channel.basicAck(msgTag,false);
