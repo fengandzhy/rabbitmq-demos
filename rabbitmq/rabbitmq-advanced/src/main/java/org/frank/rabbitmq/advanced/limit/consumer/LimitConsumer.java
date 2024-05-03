@@ -19,7 +19,7 @@ public class LimitConsumer {
         /**
          * 如果要限流这里的autoAck一定要设置成false
          * prefetchSize: 消息大小限制 0 表示无上限
-         * prefetchCount: 一次处理几条
+         * prefetchCount: 一次处理几条. 设置一个固定的值，告诉rabbitMQ不要同时给一个消费者推送多余N个消息，即一旦有N个消息还没有ack，则consumer将block掉，直到有消息ack
          * global 是否是全局的
          * */
         channel.basicQos(0,1,false);

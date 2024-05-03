@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 
 /**
- * topic类型的Exchange在匹配规则上进行了扩展，它与direct类型的Exchage相似，
+ * topic类型的Exchange在匹配规则上进行了扩展，它与direct类型的Exchange相似，
  * 也是将消息路由到Binding Key与Routing Key相匹配的Queue中，但这里的匹配规则有些不同 它可以根据Routing Key 进行模糊匹配
  * 1.这种模式较为复杂，简单来说，就是每个队列都有其关心的主题，所有的消息都带有一个“标题”(RouteKey)，Exchange会将消息转发到所有关注主题能与RouteKey模糊匹配的队列。
  * 2.这种模式需要RouteKey，也许要提前绑定Exchange与Queue。
